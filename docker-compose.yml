@@ -1,0 +1,26 @@
+version: '3'
+services:
+  lab:
+    build: .
+    command: start.sh jupyter lab --port=8889 --watch
+    ports:
+     - "8889:8889"
+    volumes:
+      - ".:/home/jovyan"
+    depends_on:
+      - build
+  build:
+    build: .
+    command: yarn watch
+    volumes:
+       - ".:/home/jovyan"
+  test:
+    build:
+      context: .
+      dockerfile: test.Dockerfile
+    command: cypress run
+    working_dir: /jupyterlab_voyager
+    volumes:
+      - ".:/jupyterlab_voyager"
+    environment:
+      CYPRESS_BASE_URL: "http://lab:8889"

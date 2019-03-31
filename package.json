@@ -1,0 +1,58 @@
+{
+  "name": "datalab_voyager",
+  "version": "1.1.0",
+  "description": "A JupyterLab extension for rendering CSV",
+  "author": "Almore Cato <almore.cato@accenture.com>",
+  "main": "lib/index.js",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab extension"
+  ],
+  "files": [
+    "lib/*.d.ts",
+    "lib/*.js",
+    "lib/*.js.map",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
+    "tutorial/*.{md,png,jpg}"
+  ],
+  "jupyterlab": {
+    "extension": true
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prepublish": "npm run build",
+    "extension:install": "jupyter labextension install datalab_voyager",
+    "extension:uninstall": "jupyter labextension uninstall  datalab_voyager",
+    "extension:enable": "jupyter labextension enable datalab_voyager",
+    "extension:disable": "jupyter labextension disable datalab_voyager"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^0.19.1",
+    "@jupyterlab/apputils": "^0.19.1",
+    "@jupyterlab/cells": "^0.19.1",
+    "@jupyterlab/console": "^0.19.1",
+    "@jupyterlab/coreutils": "^2.1.4",
+    "@jupyterlab/docmanager": "^0.19.1",
+    "@jupyterlab/docregistry": "^0.19.1",
+    "@jupyterlab/filebrowser": "^0.19.3",
+    "@jupyterlab/mainmenu": "^0.8.1",
+    "@jupyterlab/notebook": "^0.19.2",
+    "@jupyterlab/rendermime": "^0.19.1",
+    "@jupyterlab/rendermime-interfaces": "^1.1.2",
+    "@phosphor/widgets": "^1.6.0",
+    "datavoyager": "2.0.0-alpha.24",
+    "node-sass": "^4.9.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "vega": "^5.3.3",
+    "webpack": "^4.29.6"
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.5",
+    "typescript": "~3.4.1",
+    "watch": "^1.0.2"
+  }
+}
